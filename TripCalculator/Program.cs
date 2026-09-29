@@ -1,5 +1,15 @@
 ﻿using System.Reflection.Metadata;
+using System.Runtime.CompilerServices;
 
+/*
+* Name: Avery Hayden Short
+* Course: CSCI 1250, Section 001
+* Assignment: Lab 02, Trip Calculator
+* Date: September 22, 2026
+* Description: Calculates the fuel, food, and work hours behind one road trip.
+*/
+
+Console.WriteLine(" === Part 1: Road Trip === ");
 Console.Write("What was the round trip in miles? ");
 int milesForTheTrip = Convert.ToInt32(Console.ReadLine());
 
@@ -18,7 +28,9 @@ double fuelCost = gallonsNeeded * gasPrice;
 //do the output
 System.Console.WriteLine("Gallons needed: " + gallonsNeeded.ToString("F2"));
 System.Console.WriteLine("Fuel Cost: " + fuelCost.ToString("C"));
+System.Console.WriteLine(          );
 
+Console.WriteLine(" === Part 2: Pizza Party === ");
 Console.Write("How many people are going to the party? ");
 int peopleGoing = Convert.ToInt32(Console.ReadLine());
 
@@ -46,27 +58,43 @@ double pizzaCost = pizzaBought * pizzaPrice;
 System.Console.WriteLine("Total Slices; " + totalSlices.ToString("F2"));
 System.Console.WriteLine("Slices Per Person " + slicesPerPerson.ToString("F1"));
 System.Console.WriteLine("Pizza Cost " + pizzaCost.ToString("C"));
+Console.WriteLine("              ");
 
+Console.WriteLine(" === Part 3: Paycheck === "); 
 Console.WriteLine("How many hours did you work this week? ");
 int hoursWorked = Convert.ToInt32(Console.ReadLine());
 
-Console.WriteLine("What is your hourly rate? ");
+Console.WriteLine("What is your hourly rate?" );
+double hourlyRate = Convert.ToDouble(Console.ReadLine());
 
-
-const int taxRate = 18;
-Console.WriteLine(taxRate);
+const double  tax = (double)0.18m;
+Console.WriteLine(tax);
 
 //do the math
 
-double grossPay = hoursWorked * taxRate;
-double taxWithheld = grossPay * taxRate;
-double takeHomePay = grossPay - taxWithheld;
+double grossPay = (double)hoursWorked * tax;
+double tax_Withheld = grossPay * tax;
+double takeHomePay = grossPay - tax_Withheld;
 
 //do the output
 
 System.Console.WriteLine("Gross Pay; " + grossPay.ToString("C"));
-System.Console.WriteLine("Tax Withheld " + taxWithheld.ToString("C"));
-System.Console.WriteLine("Take home pay " + takeHomePay.ToString("C") );
+System.Console.WriteLine("Tax Withheld " + tax_Withheld.ToString("C"));
+System.Console.WriteLine("Take home pay " + takeHomePay.ToString("F1") );
+System.Console.WriteLine(         );
+//Part 4 
+
+double tripTotal = fuelCost + pizzaCost;
+double costPerPerson = tripTotal / peopleGoing;
+double takeHomePayPerHour = takeHomePay / hoursWorked;
+double hoursMustBeWorked = costPerPerson / takeHomePayPerHour;
+
+//do the output
+Console.WriteLine(" === Part 4: The Whole Trip === ");
+System.Console.WriteLine("Trip Total  " + tripTotal.ToString("C") );
+System.Console.WriteLine("Cost Per Person  " + costPerPerson.ToString("C") );
+System.Console.WriteLine("Take home pay per hour  " + takeHomePayPerHour.ToString("C") );
+System.Console.WriteLine("Hours you must work  " + hoursMustBeWorked.ToString("F1") );
 
 
 
